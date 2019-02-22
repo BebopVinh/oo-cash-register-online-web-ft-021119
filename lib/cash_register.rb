@@ -2,11 +2,15 @@ require 'pry'
 
 class CashRegister
   attr_accessor :discount, :total
+<<<<<<< HEAD
   attr_reader :item, :price, :quantity
+=======
+>>>>>>> 4d1a9996e6f52eeface9e75e9cb388ec11440186
   # attr_writer :total
   def initialize(discount = 0)
     @total = 0.0
     @discount = discount
+<<<<<<< HEAD
     @cart = []
   end
 
@@ -35,4 +39,23 @@ class CashRegister
     @total -= @price * @quantity
     @quantity.times {@cart.pop}
   end
+=======
+  end
+
+  def add_item(item, price, quantity = 0)
+    if quantity > 0
+      @total += price * quantity
+    else
+      @total += price
+    end
+  end
+
+  def apply_discount
+    if @discount > 0
+      @total -= (@discount/100.to_f)*@total
+    end
+    
+  end
+
+>>>>>>> 4d1a9996e6f52eeface9e75e9cb388ec11440186
 end #end of Class Cash Register
